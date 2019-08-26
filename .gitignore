@@ -29,3 +29,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+[user]
+  name = Reed Peters
+	email = reedpeters007@gmail.com
