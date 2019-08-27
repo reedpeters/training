@@ -10,4 +10,6 @@ class Product < ApplicationRecord
       in: CATEGORIES,
       message: "%{value} is not a valid category"
     }
+
+    scope :published, -> { where published: true }
 end
