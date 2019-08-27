@@ -1,2 +1,4 @@
 <h1>Welcome to ACME® Barn Yard Veterinary Healthcare</h1>
-<p>Find me in app/views/page/home.html.erb</p>
+<p>
+  <%= link_to("Choose from #{pluralize(Product.count, 'product')}", products_path) %>
+</p>
