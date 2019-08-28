@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
+    <footer>
+       <% unless user_signed_in? %>
+         <%= link_to 'Sign in', new_user_session_path %>
+         or
+         <%= link_to 'Sign up for a New Account', new_user_registration_path %>
+       <% else %>
+         <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+       <% end %>
+     </footer>
   </body>
 </html>

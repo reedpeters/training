@@ -22,8 +22,8 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
-<% if @cart.contains?(product_id: @product.id) %>
-  <%= link_to 'Remove from Cart', add_to_carts_path(product_id: @product.id) if @product.published %>
+<% if @cart&.contains?(product_id: @product.id) %>
+  <%= link_to 'Remove from Cart', remove_from_carts_path(product_id: @product.id) if @product.published %>
 <% else %>
   <%= link_to 'Add to Cart', add_to_carts_path(product_id: @product.id) if @product.published %>
 <% end %>

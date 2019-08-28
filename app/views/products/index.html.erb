@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Products</h1>
-
+<br>
+<% if current_user&.admin? %>
+  <%= link_to 'New Product', new_product_path %>
+  <br>
+<% end %>
 <table>
   <thead>
     <tr>
@@ -23,8 +27,16 @@
         <td><%= product.published %></td>
         <td><%= product.category %></td>
         <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if current_user&.admin? %>
+            <%= link_to 'Edit', edit_product_path(product) %>
+          <% end %>
+        </td>
+        <td>
+          <% if current_user&.admin? %>
+            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +44,6 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<% if current_user&.admin? %>
+  <%= link_to 'New Product', new_product_path %>
+<% end %>
